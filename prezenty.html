@@ -7,9 +7,11 @@
 		<meta name="Author" content="Jacek Sosnowski" />
 		<link rel="stylesheet" href="styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+		<script src="kolorujtlo.js" type="text/javascript"></script>
+		<script src="timedate.js" type="text/javascript"></script>
 	</head>
 
-	<body>
+	<body onload="startclock()">
 		<header>
 			<a class="logo" ><img src="Images/teashop3.png" alt="logo"></a>
 			<nav>
@@ -27,6 +29,20 @@
 		<h3 class="section-b2b-menu-header">
 			Prezenty!
 			</h3>
+			<br>
+			<form method="post" name="background">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="żółty" onclick="changeBackground('#FFF000')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="czarny" onclick="changeBackground('#000000')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="biały" onclick="changeBackground('#FFFFFF')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="zielony" onclick="changeBackground('#00FF00')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="niebieski" onclick="changeBackground('#0000FF')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="pomarańczowy" onclick="changeBackground('#FF8000')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="szary" onclick="changeBackground('#c0c0c0')">
+				<input class="btn btn-jsbckgrndbtn" type="button" value="czerwony" onclick="changeBackground('#FF0000')">
+			</form>
+			<br>
+			<div class="section-header" id="zegarek"></div>
+			<div class="section-header" id="data"></div>
 			<br>
 			<p class="section-b2b-menu-comment">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
@@ -53,18 +69,6 @@
 				Etiam feugiat, risus nec tincidunt ullamcorper, sem metus dictum diam, non tempus arcu arcu nec leo. <br>
 				Integer rutrum felis ac tempor scelerisque. <br>
 				<br><br>
-				Nam gravida, nunc id faucibus accumsan, leo est feugiat metus, sit amet tempor ligula dolor ut felis. <br>
-				Integer rutrum lorem non massa rhoncus, sed aliquet diam finibus. <br>
-				Donec faucibus vehicula lectus, nec euismod metus egestas eget. <br>
-				In ultrices massa in ultrices euismod. <br>
-				Mauris vulputate lacus eu ex luctus efficitur. <br> 
-				Praesent ornare porttitor lorem vel semper. <br>
-				Ut nec elit ac ex rutrum faucibus ut vel ipsum. <br>
-				Maecenas lectus nulla, blandit sed iaculis id, finibus quis elit. <br> 
-				Ut interdum est in efficitur sodales. In hac habitasse platea dictumst. <br> 
-				Aenean elit lorem, consectetur feugiat elementum in, posuere sed lectus. <br>
-				Nunc sodales metus ut urna tincidunt pretium. Aenean elementum fringilla tempor. <br> 
-				Donec quis maximus metus. <br>
 			</p>
         <footer class="main-footer">
             <div class="container main-footer-container">
