@@ -9,6 +9,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 		<script src="kolorujtlo.js" type="text/javascript"></script>
 		<script src="timedate.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	</head>
 
 	<body onload="startclock()">
@@ -43,6 +44,51 @@
 			<br>
 			<div class="section-header" id="zegarek"></div>
 			<div class="section-header" id="data"></div>
+			<br>
+			<div class="test-block" id="animacjaTestowa1">Kliknij, a się powiększe</div>
+		
+				<script>
+
+					$("#animacjaTestowa1").on("click", function()
+					{
+						$(this).animate({
+							width: "500px",
+							opacity: 0.4,
+							fontsize: "3em",
+							borderwidth: "10px"
+						}, 1500);
+					});
+
+				</script>
+
+			<div class="test-block" id="animacjaTestowa2">Najedź kursorem, a się powiększe</div>
+
+			<script>
+			$("#animacjaTestowa2").on(
+			{
+				"mouseover" : function() {
+					$(this).animate({
+						width: 300
+					}, 800);
+				}
+			});
+			</script>
+
+			<div class="test-block" id="animacjaTestowa3">Klikaj, abym urósł</div>
+
+			<script>
+			$("#animacjaTestowa3").on("click", function()
+			{
+				if (!$(this).is(":animated")){
+					$(this).animate({
+						width: "+=" + 50,
+						height: "+=" + 10,
+						opacity: "-=" + 0.1,
+						duration: 3000
+					});
+				}
+			});
+			</script>
 			<br>
 			<p class="section-b2b-menu-comment">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
