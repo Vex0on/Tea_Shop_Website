@@ -7,9 +7,12 @@
 		<meta name="Author" content="Jacek Sosnowski" />
 		<link rel="stylesheet" href="styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+		<script src="kolorujtlo.js" type="text/javascript"></script>
+		<script src="timedate.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	</head>
 
-	<body class="container content-section">
+	<body onload="startclock()">
 		<header>
 			<a class="logo" ><img src="Images/teashop3.png" alt="logo"></a>
 			<nav>
@@ -26,8 +29,63 @@
 		</header>
 		<section class="container content-section">
 			<h3 class="section-b2b-menu-header">
-				Prezenty!
+				Strona funkcyjna
 				</h3>
+				<br>
+				<form method="post" name="background">
+					<input class="btn btn-jsbckgrndbtn" type="button" value="żółty" onclick="changeBackground('#FFF000')">
+					<input class="btn btn-jsbckgrndbtn" type="button" value="biały" onclick="changeBackground('#FFFFFF')">
+					<input class="btn btn-jsbckgrndbtn" type="button" value="szary" onclick="changeBackground('#c0c0c0')">
+					<input class="btn btn-jsbckgrndbtn" type="button" value="pomarańczowy" onclick="changeBackground('#FF8000')">
+				</form>
+				<br>
+				<div class="section-header" id="zegarek"></div>
+				<div class="section-header" id="data"></div>
+				<br>
+				<div class="test-block" id="animacjaTestowa1">Kliknij, a się powiększe</div>
+			
+					<script>
+
+						$("#animacjaTestowa1").on("click", function()
+						{
+							$(this).animate({
+								width: "500px",
+								opacity: 0.4,
+								fontsize: "3em",
+								borderwidth: "10px"
+							}, 1500);
+						});
+
+					</script>
+
+				<div class="test-block" id="animacjaTestowa2">Najedź kursorem, a się powiększe</div>
+
+				<script>
+				$("#animacjaTestowa2").on(
+				{
+					"mouseover" : function() {
+						$(this).animate({
+							width: 300
+						}, 800);
+					}
+				});
+				</script>
+
+				<div class="test-block" id="animacjaTestowa3">Klikaj, abym urósł</div>
+
+				<script>
+				$("#animacjaTestowa3").on("click", function()
+				{
+					if (!$(this).is(":animated")){
+						$(this).animate({
+							width: "+=" + 50,
+							height: "+=" + 10,
+							opacity: "-=" + 0.1,
+							duration: 3000
+						});
+					}
+				});
+				</script>
 				<br>
 				<p class="section-b2b-menu-comment">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
@@ -53,25 +111,25 @@
 					Morbi elementum consequat semper. <br>
 					Etiam feugiat, risus nec tincidunt ullamcorper, sem metus dictum diam, non tempus arcu arcu nec leo. <br>
 					Integer rutrum felis ac tempor scelerisque. <br>
-					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<br><br><br><br>
 				</p>
-			<footer class="main-footer">
-				<div class="container main-footer-container">
-					<h3 class="site-name">Świat Herbat</h3>
-					<ul class="nav footer-nav">
-						<li>
-							<a href="https://facebook.com" width="50" height="50" target="_blank">
-								<img src="Images/Facebook1.png">
-							</a>
-						</li>
-						<li>
-							<a href="https://instagram.com" target="_blank">
-								<img src="Images/Instagram1.png">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</footer>
 		</section>
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="site-name">Świat Herbat</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://facebook.com" width="50" height="50" target="_blank">
+                            <img src="Images/Facebook1.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com" target="_blank">
+                            <img src="Images/Instagram1.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
 	</body>
 </html>
