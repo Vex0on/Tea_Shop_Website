@@ -3,9 +3,15 @@
     margin: 0;
     padding: 0;
   }
-  
+
+            /* HEADER */
+
   header {
     display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    margin-bottom: 200px;
     justify-content: flex-end;
     align-items: center;
     padding: 10px 5%;
@@ -176,7 +182,7 @@
   .newsletter {
     padding: 5px 25px;
     background-color:rgb(211, 210, 210);
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
   }
 
   .newsletter-header {
@@ -256,10 +262,9 @@
     background-color: #24252a;
     color: white;
     padding: 10px 3%;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
-    margin-top: 80px;
+    /* bottom: 0;
+    position: fixed; */
+    /* width: 100%; */
   }
 
   .main-footer-container {
