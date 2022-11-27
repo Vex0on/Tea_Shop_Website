@@ -15,14 +15,14 @@
 			<nav>
 				<ul class="nav__links">
 					<li><a href="index.html">Strona główna</a></li>
-                	<li><a href="oNas.html">O Nas</a></li>
-                	<li><a href="sklep.html">Sklep</a></li>
-					<li><a href="prezenty.html">Prezenty</a></li>
-					<li><a href="wspolpraca.html">Współpraca</a></li>
-					<li><a href="funkcyjna.html">Funkcyjna</a></li>
+                	<li><a href="html/oNas.html">O Nas</a></li>
+                	<li><a href="html/sklep.html">Sklep</a></li>
+					<li><a href="html/prezenty.html">Prezenty</a></li>
+					<li><a href="html/wspolpraca.html">Współpraca</a></li>
+					<li><a href="html/funkcyjna.html">Funkcyjna</a></li>
 				</ul>
 			</nav>
-			<a class="cta" href="kontakt.html">Kontakt</a>
+			<a class="cta" href="html/kontakt.html">Kontakt</a>
 		</header>
 	</body>
 	<section class="container content-section">
@@ -32,7 +32,7 @@
 		<div class="featured-items">
 			<div class="featured-item">
 				<span class="featured-item-title">Earl Grey Blue</span>
-				<img class="featured-item-image" src="../Images/EarlGrey.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/EarlGrey.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">8,99zł/50g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -40,7 +40,7 @@
 			</div>
 			<div class="featured-item">
 				<span class="featured-item-title">Japońska Wiśnia</span>
-				<img class="featured-item-image" src="../Images/JaponskaWisnia.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/JaponskaWisnia.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">8,99zł/50g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -48,7 +48,7 @@
 			</div>
 			<div class="featured-item">
 				<span class="featured-item-title">Dotyk Anioła</span>
-				<img class="featured-item-image" src="../Images/DotykAniola.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/DotykAniola.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">16,99zł/50g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -58,7 +58,7 @@
 		<div class="featured-items">
 			<div class="featured-item">
 				<span class="featured-item-title">Czerwony Smok</span>
-				<img class="featured-item-image" src="../Images/CzerwonySmok.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/CzerwonySmok.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">10,99zł/50g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="featured-item">
 				<span class="featured-item-title">Mate Green Frutas</span>
-				<img class="featured-item-image" src="../Images/Yerba_GreenFrutas.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/Yerba_GreenFrutas.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">21,99zł/400g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -74,7 +74,7 @@
 			</div>
 			<div class="featured-item">
 				<span class="featured-item-title">Kalipso Premium</span>
-				<img class="featured-item-image" src="../Images/KalipsoPremium.jpg" width="150" height="150">
+				<img class="featured-item-image" src="Images/KalipsoPremium.jpg" width="150" height="150">
 				<div class="featued-item-details">
 					<span class="featured-item-price">15,99zł/50g</span>
 					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
@@ -102,12 +102,12 @@
 			<ul class="nav footer-nav">
 				<li>
 					<a href="https://facebook.com" width="50" height="50" target="_blank">
-						<img src="../Images/Facebook1.png">
+						<img src="Images/Facebook1.png">
 					</a>
 				</li>
 				<li>
 					<a href="https://instagram.com" target="_blank">
-						<img src="../Images/Instagram1.png">
+						<img src="Images/Instagram1.png">
 					</a>
 				</li>
 			</ul>
