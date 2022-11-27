@@ -5,96 +5,43 @@
 		<meta http-equiv="Content-Language" content="pl" />
 		<title>Swiat Herbat</title>
 		<meta name="Author" content="Jacek Sosnowski" />
-		<link rel="stylesheet" href="../styles.css">
+		<link rel="stylesheet" href="css/styles.css">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+		<script src="./js/kolorujtlo.js" type="text/javascipt"></script>
+		<script src="./js/timedate.js" type="text/javascipt"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	</head>
 
 	<body>
 		<header>
-			<a class="logo" ><img src="../Images/teashop3.png" alt="logo"></a>
+			<a class="logo" ><img src="Images/teashop3.png" alt="logo"></a>
 			<nav>
 				<ul class="nav__links">
-					<li><a href="index.html">Strona główna</a></li>
-                	<li><a href="html/oNas.html">O Nas</a></li>
-                	<li><a href="html/sklep.html">Sklep</a></li>
-					<li><a href="html/prezenty.html">Prezenty</a></li>
-					<li><a href="html/wspolpraca.html">Współpraca</a></li>
-					<li><a href="html/funkcyjna.html">Funkcyjna</a></li>
+					<li><a href="index.php?page=glowna">Strona główna</a></li>
+                	<li><a href="index.php?page=oNas">O Nas</a></li>
+                	<li><a href="index.php?page=sklep">Sklep</a></li>
+					<li><a href="index.php?page=prezenty">Prezenty</a></li>
+					<li><a href="index.php?page=wspolpraca">Współpraca</a></li>
+					<li><a href="index.php?page=funkcyjna">Funkcyjna</a></li>
+					<li><a href="index.php?page=filmy">Filmy</a></li>
 				</ul>
 			</nav>
-			<a class="cta" href="html/kontakt.html">Kontakt</a>
+			<a class="cta" href="index.php?page=kontakt">Kontakt</a>
 		</header>
 	</body>
-	<section class="container content-section">
-		<br><br><br><br><br><br><br><br><br>
-		<h2 class="section-header">Polecane Produkty</h1>
-		<p class="section-header-comment">Odwiedź nasz sklep, aby zapoznać się z naszymi produktami</p>
-		<div class="featured-items">
-			<div class="featured-item">
-				<span class="featured-item-title">Earl Grey Blue</span>
-				<img class="featured-item-image" src="Images/EarlGrey.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">8,99zł/50g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-			<div class="featured-item">
-				<span class="featured-item-title">Japońska Wiśnia</span>
-				<img class="featured-item-image" src="Images/JaponskaWisnia.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">8,99zł/50g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-			<div class="featured-item">
-				<span class="featured-item-title">Dotyk Anioła</span>
-				<img class="featured-item-image" src="Images/DotykAniola.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">16,99zł/50g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-		</div>
-		<div class="featured-items">
-			<div class="featured-item">
-				<span class="featured-item-title">Czerwony Smok</span>
-				<img class="featured-item-image" src="Images/CzerwonySmok.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">10,99zł/50g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-			<div class="featured-item">
-				<span class="featured-item-title">Mate Green Frutas</span>
-				<img class="featured-item-image" src="Images/Yerba_GreenFrutas.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">21,99zł/400g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-			<div class="featured-item">
-				<span class="featured-item-title">Kalipso Premium</span>
-				<img class="featured-item-image" src="Images/KalipsoPremium.jpg" width="150" height="150">
-				<div class="featued-item-details">
-					<span class="featured-item-price">15,99zł/50g</span>
-					<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-				</div>
-			</div>
-		</div>
-		<br>
-		<hr>
-		<div class="newsletter">
-			<h2 class="newsletter-header">Zapisz się do newslettera</h2>
-			<p class="newsletter-text">Zapisz się do newslettera i zdobądź aż <b>10%</b> rabatu</p>
-			<form class="newsletter-form" autocomplete="on">
-				<label for="fname"></label><br>
-				<input type="text" id="fname" value="Twoje imię" onfocus="if (this.value=='Twoje imię') this.value='';">
-				<label for="email"></label><br>
-				<input type="text" id="email" value="Twój adres email" onfocus="if (this.value=='Twój adres email') this.value='';"><br><br>
-				<input class="btn btn-primary" type="submit" value="Zapisz się">
-			  </form> 
-		</div>
-	</section>
+	
+	<?php
+            error_reporting(E_ALL^E_NOTICE^E_WARNING);
+            $page_name = $_GET['page'];
+            $page = "./html/" . $page_name . ".html";
+
+            if(file_exists($page)){
+                include($page);
+            }
+            else{
+                include("./html/" .'blad.html');
+            }
+        ?>
 
 	<footer class="main-footer">
 		<div class="container main-footer-container">
@@ -114,3 +61,10 @@
 		</div>
 	</footer>
 </html>
+
+<?php
+$nr_indeksu = '162681';
+$nr_grupy = '4';
+
+echo 'Autor: Jacek Sosnowski ' . $nr_indeksu . ' grupa: ' . $nr_grupy . '<br /><br />';
+?>

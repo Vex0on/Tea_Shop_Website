@@ -4,8 +4,8 @@ var decimal = 0
 function convert (entryform, from, to)
 {
     convertfrom = from.selectedIndex;
-    convertto = to.selectedIndex;
-    entryfrom.display.value = (entryform.input.value * from[convertfrom].value / to[convertto].value);
+    convert = to.selectedIndex;
+    entryform.display.value = (entryform.input.value * from[convertfrom].value / to[convert].value);
 }
 
 function addChar (input, character)
@@ -36,5 +36,5 @@ function clear (form)
 
 function changeBackground(hexNumber)
 {
-    document.bgColor = hexNumber;
+    document.body.style.background = hexNumber;
 }

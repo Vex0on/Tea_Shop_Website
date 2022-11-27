@@ -256,6 +256,36 @@
     margin-left: 90px;
   }
 
+            /* Filmy */
+
+  #movies{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .movie-item{
+    text-align: center;
+  }
+
+  .movie-item iframe{
+    width: 780;
+    height: 421;
+    border-radius:70px 70px 70px 70px;
+}
+
+  .movie-item-title{
+    background-color: rgba(211, 230, 211, 0.623);
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    padding: 15px;
+    width: 55%;
+    font-size: 1.1rem;
+    border-radius: 80px 80px 80px 80px;
+    margin-left: 212px;
+    margin-right: 212px;
+    margin-bottom: 20px;
+  }
             /* FOOTER */
 
   .main-footer {
