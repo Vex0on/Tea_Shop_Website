@@ -110,6 +110,10 @@
     margin: 30px;
   }
 
+  .content-section {
+    margin-top: 135px;
+  }
+
   .featured-item-title {
     display: block;
     width: 100%;
@@ -259,7 +263,7 @@
             /* Filmy */
 
   #movies{
-    width: 50%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -269,8 +273,7 @@
   }
 
   .movie-item iframe{
-    width: 780;
-    height: 421;
+    width: 100%;
     border-radius:70px 70px 70px 70px;
 }
 
@@ -279,11 +282,8 @@
     font-family: "Montserrat", sans-serif;
     text-align: center;
     padding: 15px;
-    width: 55%;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 80px 80px 80px 80px;
-    margin-left: 212px;
-    margin-right: 212px;
     margin-bottom: 20px;
   }
             /* FOOTER */
