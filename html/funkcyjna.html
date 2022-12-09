@@ -1,89 +1,87 @@
-			<section class="container content-section">
-			<h3 class="section-b2b-menu-header">
-				Strona funkcyjna
-				</h3>
-				<br>
-				<form method="post" name="background">
-					<input class="btn btn-jsbckgrndbtn" type="button" value="żółty" onclick="changeBackground('#FFF000')">
-					<input class="btn btn-jsbckgrndbtn" type="button" value="biały" onclick="changeBackground('#FFFFFF')">
-					<input class="btn btn-jsbckgrndbtn" type="button" value="szary" onclick="changeBackground('#c0c0c0')">
-					<input class="btn btn-jsbckgrndbtn" type="button" value="pomarańczowy" onclick="changeBackground('#FF8000')">
-				</form>
-				<br>
-				<div class="section-header" id="zegarek"></div>
-				<div class="section-header" id="data"></div>
-				<br>
-				<div class="test-block" id="animacjaTestowa1">Kliknij, a się powiększe</div>
-			
-					<script>
+<section class="container content-section">
+	<h3 class="section-b2b-menu-header">
+		Strona funkcyjna
+		</h3>
+		<br>
+		<form method="post" name="background">
+			<input class="btn btn-jsbckgrndbtn" type="button" value="żółty" onclick="changeBackground('#FFF000')">
+			<input class="btn btn-jsbckgrndbtn" type="button" value="biały" onclick="changeBackground('#FFFFFF')">
+			<input class="btn btn-jsbckgrndbtn" type="button" value="szary" onclick="changeBackground('#c0c0c0')">
+			<input class="btn btn-jsbckgrndbtn" type="button" value="pomarańczowy" onclick="changeBackground('#FF8000')">
+		</form>
+		<br>
+		<div class="section-header" id="zegarek"></div>
+		<div class="section-header" id="data"></div>
+		<br>
+		<div class="test-block" id="animacjaTestowa1">Kliknij, a się powiększe</div>
+	
+			<script>
 
-						$("#animacjaTestowa1").on("click", function()
-						{
-							$(this).animate({
-								width: "500px",
-								opacity: 0.4,
-								fontsize: "3em",
-								borderwidth: "10px"
-							}, 1500);
-						});
-
-					</script>
-
-				<div class="test-block" id="animacjaTestowa2">Najedź kursorem, a się powiększe</div>
-
-				<script>
-				$("#animacjaTestowa2").on(
+				$("#animacjaTestowa1").on("click", function()
 				{
-					"mouseover" : function() {
-						$(this).animate({
-							width: 300
-						}, 800);
-					}
+					$(this).animate({
+						width: "500px",
+						opacity: 0.4,
+						fontsize: "3em",
+						borderwidth: "10px"
+					}, 1500);
 				});
-				</script>
 
-				<div class="test-block" id="animacjaTestowa3">Klikaj, abym urósł</div>
+			</script>
 
-				<script>
-				$("#animacjaTestowa3").on("click", function()
-				{
-					if (!$(this).is(":animated")){
-						$(this).animate({
-							width: "+=" + 50,
-							height: "+=" + 10,
-							opacity: "-=" + 0.1,
-							duration: 3000
-						});
-					}
+		<div class="test-block" id="animacjaTestowa2">Najedź kursorem, a się powiększe</div>
+
+		<script>
+		$("#animacjaTestowa2").on(
+		{
+			"mouseover" : function() {
+				$(this).animate({
+					width: 300
+				}, 800);
+			}
+		});
+		</script>
+
+		<div class="test-block" id="animacjaTestowa3">Klikaj, abym urósł</div>
+
+		<script>
+		$("#animacjaTestowa3").on("click", function()
+		{
+			if (!$(this).is(":animated")){
+				$(this).animate({
+					width: "+=" + 50,
+					height: "+=" + 10,
+					opacity: "-=" + 0.1,
+					duration: 3000
 				});
-				</script>
-				<br>
-				<p class="section-b2b-menu-comment">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
-					Vestibulum mattis diam vitae interdum dignissim. <br>
-					Morbi vitae magna tempor, feugiat dolor quis, blandit turpis. <br>
-					Praesent aliquet ultrices mi, nec posuere libero. <br>
-					Curabitur mollis augue sit amet volutpat rhoncus. <br>
-					Ut pharetra dolor mollis ante ultricies sodales. <br>
-					Morbi a convallis nibh. Nullam feugiat arcu eget velit rutrum, a sagittis erat viverra. <br>
-					Phasellus iaculis facilisis purus, at condimentum quam consequat vel. <br>
-					Nunc pulvinar commodo vulputate. <br>
-					<br><br>
-					Fusce non nisl dictum, fermentum nunc non, gravida ligula. <br>
-					Fusce sit amet eros eget tortor elementum dictum. In eu mauris volutpat, interdum sapien quis, mollis tellus. <br>
-					Vestibulum laoreet dictum magna. Cras euismod sit amet diam non sollicitudin. <br>
-					Fusce iaculis tincidunt arcu ut volutpat. Nunc et enim risus. <br>
-					In lectus diam, molestie sed elit sit amet, luctus accumsan diam. <br>
-					Etiam finibus est lobortis leo porta gravida. <br>
-					Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br>
-					Etiam dui neque, mattis eget semper eget, pharetra ac turpis. <br>
-					Nam maximus arcu in quam maximus ornare. Donec id ultricies mi. <br>
-					Aliquam mauris dui, placerat id elementum nec, luctus et tortor. <br>
-					Morbi elementum consequat semper. <br>
-					Etiam feugiat, risus nec tincidunt ullamcorper, sem metus dictum diam, non tempus arcu arcu nec leo. <br>
-					Integer rutrum felis ac tempor scelerisque. <br>
-					<br><br><br><br>
-				</p>
-		</section>
-	</body>
-</html>
+			}
+		});
+		</script>
+		<br>
+		<p class="section-b2b-menu-comment">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
+			Vestibulum mattis diam vitae interdum dignissim. <br>
+			Morbi vitae magna tempor, feugiat dolor quis, blandit turpis. <br>
+			Praesent aliquet ultrices mi, nec posuere libero. <br>
+			Curabitur mollis augue sit amet volutpat rhoncus. <br>
+			Ut pharetra dolor mollis ante ultricies sodales. <br>
+			Morbi a convallis nibh. Nullam feugiat arcu eget velit rutrum, a sagittis erat viverra. <br>
+			Phasellus iaculis facilisis purus, at condimentum quam consequat vel. <br>
+			Nunc pulvinar commodo vulputate. <br>
+			<br><br>
+			Fusce non nisl dictum, fermentum nunc non, gravida ligula. <br>
+			Fusce sit amet eros eget tortor elementum dictum. In eu mauris volutpat, interdum sapien quis, mollis tellus. <br>
+			Vestibulum laoreet dictum magna. Cras euismod sit amet diam non sollicitudin. <br>
+			Fusce iaculis tincidunt arcu ut volutpat. Nunc et enim risus. <br>
+			In lectus diam, molestie sed elit sit amet, luctus accumsan diam. <br>
+			Etiam finibus est lobortis leo porta gravida. <br>
+			Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. <br>
+			Etiam dui neque, mattis eget semper eget, pharetra ac turpis. <br>
+			Nam maximus arcu in quam maximus ornare. Donec id ultricies mi. <br>
+			Aliquam mauris dui, placerat id elementum nec, luctus et tortor. <br>
+			Morbi elementum consequat semper. <br>
+			Etiam feugiat, risus nec tincidunt ullamcorper, sem metus dictum diam, non tempus arcu arcu nec leo. <br>
+			Integer rutrum felis ac tempor scelerisque. <br>
+			<br><br><br><br>
+		</p>
+</section>
