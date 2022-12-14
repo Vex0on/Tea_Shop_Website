@@ -1,10 +1,8 @@
-<?
+<?php
     $dbhost = 'localhost';
     $dbuser = 'root';
     $dbpass = '';
     $baza = 'moja_strona';
 
-    $link = mysql_connect($dbhost, $dbuser, $dbpass);
+    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307);
     if (!$link) echo '<b>przerwane połączenie</b>';
-    if(!mysql_select_dbi($baza)) echo 'nie wybrano bazy';
-?>

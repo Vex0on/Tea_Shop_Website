@@ -10,6 +10,7 @@
 		<script src="./js/kolorujtlo.js" type="text/javascipt"></script>
 		<script src="./js/timedate.js" type="text/javascipt"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<link rel="shortcut icon" href="#">
 	</head>
 
 	<body>
@@ -31,29 +32,29 @@
 	</body>
 	
 	<?php
-            error_reporting(E_ALL^E_NOTICE^E_WARNING);
-			include('./cfg.php');
-			include('./showpage.php');
-			if(!isset($_GET['id']))
-			{
-				$id = 1;
-			}
-			else
-			{
-				$id = $_GET['id'];
-			}
-			echo PokazPodstrone($id)
+		error_reporting(E_ALL^E_NOTICE^E_WARNING);
+		include('./cfg.php');
+		include('./showpage.php');
+		if(!isset($_GET['id']))
+		{
+			$id = 1;
+		}
+		else
+		{
+			$id = $_GET['id'];
+		}
+		echo PokazPodstrone($id, $link);
 
-            // $page_name = $_GET['page'];
-            // $page = "./html/" . $page_name . ".html";
+		// $page_name = $_GET['page'];
+		// $page = "./html/" . $page_name . ".html";
 
-            // if(file_exists($page)){
-            //     include($page);
-            // }
-            // else{
-            //     include("./html/" .'blad.html');
-            // }
-        ?>
+		// if(file_exists($page)){
+		//     include($page);
+		// }
+		// else{
+		//     include("./html/" .'blad.html');
+		// }
+    ?>
 
 	<footer class="main-footer">
 		<div class="container main-footer-container">
