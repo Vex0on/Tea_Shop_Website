@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$_SESSION['active'] = true;
+if (!isset($_GET['id'])) $_GET['id'] = 1;
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,9 +31,10 @@
 					<li><a href="index.php?page=wspolpraca&id=5">Współpraca</a></li>
 					<li><a href="index.php?page=funkcyjna&id=6">Funkcyjna</a></li>
 					<li><a href="index.php?page=filmy&id=7">Filmy</a></li>
+					<li><a href="index.php?page=kontakt&id=8">Kontakt</a>
 				</ul>
 			</nav>
-			<a class="cta" href="index.php?page=kontakt&id=8">Kontakt</a>
+			<a class="cta" href="./php/admin_page.php">Logowanie</a>
 		</header>
 	</body>
 	
@@ -45,15 +52,6 @@
 		}
 		echo PokazPodstrone($id, $link);
 
-		// $page_name = $_GET['page'];
-		// $page = "./html/" . $page_name . ".html";
-
-		// if(file_exists($page)){
-		//     include($page);
-		// }
-		// else{
-		//     include("./html/" .'blad.html');
-		// }
     ?>
 
 	<footer class="main-footer">

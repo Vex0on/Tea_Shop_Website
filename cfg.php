@@ -4,5 +4,9 @@
     $dbpass = '';
     $baza = 'moja_strona';
 
-    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307);
+    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
+
+    $login = "admin";
+    $pass = "admin";
+    
     if (!$link) echo '<b>przerwane połączenie</b>';
