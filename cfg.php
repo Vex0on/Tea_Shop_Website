@@ -4,7 +4,7 @@
     $dbpass = '';
     $baza = 'moja_strona';
 
-    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
+    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307);
 
     $login = "admin";
     $pass = "admin";

@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza));
+        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307));
 ?>
 </body>
 </html>

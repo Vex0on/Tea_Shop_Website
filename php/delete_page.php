@@ -14,7 +14,7 @@
 <body>
     <?php 
         echo UsunPodstrone();
-        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza));
+        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307));
 
         if(isset($_POST['btn-delete'])){
             $page_id = $_POST['p_id'];
@@ -22,5 +22,5 @@
             mysqli_query($link, $query);
             header("Location: delete_page.php");
 
-            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza));
+            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307));
         }
