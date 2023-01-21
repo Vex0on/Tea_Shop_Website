@@ -21,10 +21,11 @@
 <body>
 <table>
         <tr>
-            <td><button class="b"><a href="create_page.php">Dodaj Podstronę</a></button></td>
-            <td><button class="b"><a href="show_page.php">Pokaż Podstrony</a></button></td>
-            <td><button class="b"><a href="edit_page.php">Edytuj Podstronę</a></button></td>
-            <td><button class="b"><a href="delete_page.php">Usuń Podstronę</a></button></td>
+            <td><button><a href="create_page.php">Dodaj Podstronę</a></button></td>
+            <td><button><a href="show_page.php">Pokaż Podstrony</a></button></td>
+            <td><button><a href="edit_page.php">Edytuj Podstronę</a></button></td>
+            <td><button><a href="delete_page.php">Usuń Podstronę</a></button></td>
+            <td><button><a href="logout.php"> Wyloguj się</a>;
         </tr>
 </table>
 </body>

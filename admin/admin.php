@@ -4,7 +4,7 @@ require_once('../cfg.php');
 
 function FormularzLogowania(){
     $wynik = '
-        <div class="logowanie-1">
+        <div class="logowanie">
             <h1 class="heading">Panel CMS:</h1>
             <div class="logowanie">
                 <form method="POST" name="LoginForm" enctype="multipart/form-data" action="'.$_SERVER['REQUEST_URI'].'">

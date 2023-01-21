@@ -16,6 +16,9 @@
     session_start();
     require_once("../cfg.php");
     require_once("../admin/admin.php");
+    require_once("contact.php");
+    echo FormularzLogowania();
+    PrzypomnijHaslo($pass);
 
     if(isset($_POST['x1_submit'])) {
         $user = mysqli_real_escape_string($link, $_POST['login_email']);

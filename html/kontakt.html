@@ -1,18 +1,19 @@
+<link rel="stylesheet" href="css/form.css">
+
 <section class="container content-section">
-	<form class="newsletter-form" autocomplete="on">
+	<form class="" action="./php/contact.php" method="POST">
 		<br><br>
 		<label for="fname">Adres email:</label><br>
 			<input type="email" id="email" name="email"><br><br>
-		<label for="text">W jakiej sprawie chcesz się z nami skontaktować?</label>
+		<label for="subject">Temat:</label><br>
+			<input type="text" id="subject" name="subject"><br><br>
+		<label for="message">W jakiej sprawie chcesz się z nami skontaktować?</label>
 			<br>
-			<textarea name="message" rows="20" cols="50">Napisz kilka zdań.</textarea>
+			<textarea name="message" id="message" rows="20" cols="50">Napisz kilka zdań.</textarea>
 			<br><br>
 		<label class="cv-attach" for="myfile">Załącznik: </label>
 			<input type="file" id="myfile" name="myfile">
 			<br><br>
-			<input class="btn btn-primary" type="submit" value="Wyślij">
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<button type="submit" name="send" class="send-button">Wyślij</button>
 	</form>
 </section>
-
-

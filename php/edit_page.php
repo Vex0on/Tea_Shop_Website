@@ -14,7 +14,7 @@
 <body>
     <?php 
         echo EdytujPodstrone();
-        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307));
+        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza));
 
         if(isset($_POST['btn-edit'])){
             $page_id = $_POST['p_id'];
@@ -26,7 +26,7 @@
                 $status = 0;
             }
         
-            $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307);
+            $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
         
             $query = "SELECT * FROM page_list WHERE id='$page_id'";
             $result = mysqli_query($link, $query);
