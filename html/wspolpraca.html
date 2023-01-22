@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/form.css">
+
 <section class="container content-section">
 	<br>
 	<h2 class="section-header">Chcesz dołączyć do naszego zespołu?</h2>
@@ -16,7 +18,7 @@
 	swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (RODO).
 	</p>
 	<br>
-	<form class="newsletter-form" autocomplete="on">
+	<form class="" action="./php/contact.php" method="POST">
 		<label for="location">Wybierz miasto:</label>
 		<select id="locations" name="locations" size="1">
 			<option value="olsztyn">Olsztyn</option>
@@ -35,6 +37,6 @@
 		<label class="cv-attach" for="myfile">CV:</label>
 			<input type="file" id="myfile" name="myfile">
 			<br><br>
-		<input class="btn btn-primary" type="submit" value="Wyślij">
+		<button type="submit" name="send" class="send-button">Wyślij</button>
 		<br><br><br><br><br><br>
 	</form>

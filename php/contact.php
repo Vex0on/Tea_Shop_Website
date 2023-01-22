@@ -17,8 +17,6 @@
         $mail->Username = 'jaceksosphp@gmail.com';
         $mail->Password = 'hytwoqijbhzpehow';
         
-        // $mail->setFrom('jaceksosphp@gmail');
-        
         $mail->addAddress("jaceksosphp@gmail.com");
         $mail->Subject = $_POST["subject"];
         $mail->Body = $_POST["message"];
@@ -33,7 +31,6 @@
             echo "Błąd!";
         }
         
-        // Header("Location:../index.php?page=kontakt&id=8");
     }
 
 
