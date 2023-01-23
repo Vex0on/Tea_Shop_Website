@@ -1,7 +1,7 @@
 <?php 
-session_start();
-$_SESSION['active'] = true;
-if (!isset($_GET['id'])) $_GET['id'] = 1;
+session_start(); # rozpoczęcie sesji
+$_SESSION['active'] = true; # ustawianie zmiennej $_SESSION['active'] na true
+if (!isset($_GET['id'])) $_GET['id'] = 1; # pobranie parametru id za pomocą metody GET
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@ if (!isset($_GET['id'])) $_GET['id'] = 1;
 		<link rel="shortcut icon" href="#">
 	</head>
 
+	<!-- Panel nawigacyjny -->
 	<body>
 		<header>
 			<a class="logo" ><img src="Images/teashop3.png" alt="logo"></a>
@@ -39,18 +40,18 @@ if (!isset($_GET['id'])) $_GET['id'] = 1;
 	</body>
 	
 	<?php
-		error_reporting(E_ALL^E_NOTICE^E_WARNING);
-		include('./cfg.php');
-		include('./showpage.php');
+		error_reporting(E_ALL^E_NOTICE^E_WARNING); # błąd
+		include('./cfg.php'); # import pliku konfiguracyjnego
+		include('./showpage.php'); # import funkcji pokazującej treść strony
 		if(!isset($_GET['id']))
 		{
-			$id = 1;
+			$id = 1; # jeśli id nie jest ustawione to jest równe 1
 		}
 		else
 		{
-			$id = $_GET['id'];
+			$id = $_GET['id']; # jeśli id jest ustawione to jest przypisywane do $id
 		}
-		echo PokazPodstrone($id, $link);
+		echo PokazPodstrone($id, $link); # wywołanie funkcji, która wyświetla treść odpowiedniej podstrony
 
     ?>
 

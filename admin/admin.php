@@ -2,7 +2,7 @@
 
 require_once('../cfg.php');
 
-function FormularzLogowania(){
+function FormularzLogowania(){ # generowanie formularza logowania do panelu administracyjnego z polami email i hasło
     $wynik = '
         <div class="logowanie">
             <h1 class="heading">Panel CMS:</h1>
@@ -20,7 +20,7 @@ function FormularzLogowania(){
     return $wynik;
 }
 
-function ListaPodstron($link){
+function ListaPodstron($link){ # wyświetlanie listy wszystkich podstron z bazy danych (READ)
     $query = "SELECT * FROM page_list";
     $result = mysqli_query($link, $query);
     
@@ -39,7 +39,7 @@ function ListaPodstron($link){
     echo '</table>';
 }
 
-function EdytujPodstrone(){
+function EdytujPodstrone(){ # edycja danej podstrony z bazy danych (UPDATE)
     $wynik = '
         <div class="editForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
@@ -57,7 +57,7 @@ function EdytujPodstrone(){
     return $wynik;
 }
 
-function StworzPodstrone(){
+function StworzPodstrone(){ # tworzenie nowej podstrony w bazie danych (CREATE)
     $wynik = '
         <div class="createForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
@@ -75,7 +75,7 @@ function StworzPodstrone(){
     return $wynik;
 }
 
-function UsunPodstrone(){
+function UsunPodstrone(){ # usuwanie istniejącej podstrony z bazy danych (DELETE)
     $wynik = '
         <div class="deleteForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">

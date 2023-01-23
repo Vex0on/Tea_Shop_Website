@@ -1,6 +1,6 @@
 <?php 
-    require_once('../admin/admin.php');
-    require_once('../cfg.php');
+    require_once('../admin/admin.php'); # import pliku z funkcjami administracyjnimi
+    require_once('../cfg.php'); # import pliku konfiguracyjnego
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307));
+        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania podstron z danymi potrzebnymi do połączenia z bazą danych
 ?>
 </body>
 </html>
