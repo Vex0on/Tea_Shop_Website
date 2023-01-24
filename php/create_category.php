@@ -14,7 +14,7 @@
 <body>
     <?php 
         echo StworzKategorie();
-        echo ListaKategorii(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania podstron z danymi potrzebnymi do połączenia z bazą danych
+        echo ListaKategorii(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania kategorii z danymi potrzebnymi do połączenia z bazą danych
 
         if(isset($_POST['btn-create-k'])){ # gdy został wciśnięty przycisk o wartości name=btn-create-k
             $category_name = $_POST['category_name']; # pobierana jest nazwa podana w inpucie i przypisywana do zmiennej $category_name

@@ -44,6 +44,7 @@
                     $query = "UPDATE categories SET category_name='$category_name', parent='$parent' WHERE id='$category_id'";
                     $result = mysqli_query($link, $query);
                 }
+                header("Location: edit_category.php"); # przekierowanie na stronę edit_category
             }
         }
     ?>
