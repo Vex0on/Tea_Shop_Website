@@ -15,7 +15,7 @@
 <body>
     <?php 
         echo EdytujProdukt(); # wywołanie funkcji edycji kategorii
-        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # wywołanie funkcji wyświetlania kategorii z danymi potrzebnymi do połączenia z bazą danych
+        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania kategorii z danymi potrzebnymi do połączenia z bazą danych
 
         if(isset($_POST['btn-edit-p'])){ # gdy został wciśnięty przycisk o wartości name=btn-edit-p
             $product_id = $_POST['id'];
@@ -35,7 +35,7 @@
                 $status = 0; # w przeciwnym wypadku status jest równy 0
             }
         
-            $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307); # połączenie z bazą przypisane do $link
+            $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza); # połączenie z bazą przypisane do $link
             $query = "UPDATE products SET title='$title', description='$description', modify_date='$modify_date', 
             expiration_date='$expiration_date', netto_value='$netto_value', vat='$vat', amount='$amount', availability_status='$status',
             category='$category', weight='$weight', image='$image' WHERE id='$product_id'";

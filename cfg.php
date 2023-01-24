@@ -4,7 +4,7 @@
     $dbpass = ''; # to hasło (puste w tym przypadku)
     $baza = 'moja_strona'; # to nazwa bazy danych (moja_strona)
 
-    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307); # zmienna przechowująca informacje o połączeniu, jeśli połączenie nie zostanie nawiązane, wyświetli się *echo
+    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza); # zmienna przechowująca informacje o połączeniu, jeśli połączenie nie zostanie nawiązane, wyświetli się *echo
 
     $login = "admin"; # login do admin panelu
     $pass = "admin"; # hasło do admin panelu

@@ -15,7 +15,7 @@
 <body>
     <?php 
         echo StworzProdukt();
-        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # wywołanie funkcji wyświetlania produktów z danymi potrzebnymi do połączenia z bazą danych
+        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania produktów z danymi potrzebnymi do połączenia z bazą danych
 
         if(isset($_POST['btn-create-p'])){ # gdy został wciśnięty przycisk o wartości name=btn-create-p
             $title = $_POST['title']; # pobierany jest tytuł podany w inpucie i przypisywany do zmiennej $title
@@ -36,7 +36,7 @@
             '".$netto_value."', '".$vat."', '".$amount."', '".$availability_status."', '".$category."', '".$weight."', '".$image."')"; # zapytanie SQL dodające nowy wpis w bazie danych
             mysqli_query($link, $query); # wykonanie poprzedniego zapytania
             header("Location: create_product.php"); # przekierowanie na stronę create_category
-            echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # ponowne wywołanie funkcji w celu odświeżenia wyników
+            echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # ponowne wywołanie funkcji w celu odświeżenia wyników
         }
 ?>
 

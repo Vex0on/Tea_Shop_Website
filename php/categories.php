@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo Kategorie(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307))
+        echo Kategorie(mysqli_connect($dbhost, $dbuser, $dbpass, $baza))
 ?>
 </div>
 </body>

@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307))
+        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza))
     ?>
 </div>
 ?>

@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # wywołanie funkcji wyświetlania podstron z danymi potrzebnymi do połączenia z bazą danych
+        echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania podstron z danymi potrzebnymi do połączenia z bazą danych
 ?>
 </body>
 </html>
