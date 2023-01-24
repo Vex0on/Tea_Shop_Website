@@ -1,6 +1,7 @@
 <?php
 
 require_once('../cfg.php');
+require_once ('../class/category.php');
 
 function FormularzLogowania(){ # generowanie formularza logowania do panelu administracyjnego z polami email i hasło
     $wynik = '
@@ -90,51 +91,148 @@ function UsunPodstrone(){ # usuwanie istniejącej podstrony z bazy danych (DELET
     return $wynik;
 }
 
-function ListaKategorii($link){ # wyświetlanie listy wszystkich kategorii z bazy danych (READ)
-    $query = "SELECT * FROM categories";
-    $result = mysqli_query($link, $query);
-    while($row = mysqli_fetch_array($result)){
-
-        echo '<table>';
-        echo '<tr>';
-        echo '<th>ID</th>';
-        echo '<th>Nazwa kategorii</th>';
-        echo '<th>Rodzic</th>';
-        echo '</tr>';
-        if($row['parent'] == 0)
-        {
-            echo '<tr>';
-            echo '<td>'.$row['id'].'</td>';
-            echo '<td>'.'<h3>'.$row['category_name'].'</h3>'.'</td>';
-            echo '<td>'.$row['parent'].'</td>';
-            echo '</tr>';
-        }
-        
-
-        $query2 = 'SELECT * FROM categories WHERE parent ='.$row['id'];
-        $result2 = mysqli_query($link, $query2);
-        while($row2 = mysqli_fetch_array($result2) )
-        {
-            echo '<tr>';
-            echo '<td>'.$row2['id'].'</td>';
-            echo '<td>'.$row2['category_name'].'</td>';
-            echo '<td>'.$row2['parent'].'</td>';
-            echo '</tr>';
-        }
-        echo '</table>';
-    }
+function Kategorie($link){ # wyświetlanie listy wszystkich kategorii z bazy danych (READ)
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		if (isset($_POST['btnAdd']))
+		{
+			$category = new Category();
+			$category->setCategoryName($_POST['new_category_name']);
+			$category->setParent((int)$_POST['new_parent']);
+			mysqli_query($link, $category->add());
+		}
+		elseif (isset($_POST['btnEdit']))
+		{
+			$category = (getCategories($link, $_POST['id']))[$_POST['id']]['main'];
+			$category->setCategoryName($_POST['category_name']);
+			$category->setParent($_POST['parent']);
+			$category->setId($_POST['id']);
+			if($category->changed()){
+				echo 'EDITED';
+				mysqli_query($link, $category->edit());
+			} else {
+				echo 'NOT EDITED';
+			}
+		}
+		elseif (isset($_POST['btnDelete']))
+		{
+			$category = (getCategories($link, $_POST['id']))[$_POST['id']]['main'];
+			mysqli_query($link, $category->delete());
+		}
+	}
+	$categories = getCategories($link);
+	echo '<table >';
+	echo '<tr>';
+	echo '<th>ID</th>';
+	echo '<th>Nazwa kategorii</th>';
+	echo '<th>Rodzic</th>';
+	echo '</tr>';
+	foreach ($categories as $id => $category){
+		if($category['main']->getParent() == 0)
+			renderTree($categories, $id);
+	}
+	echo '</table>';
+	echo '<form action="' .$_SERVER['REQUEST_URI']. '" method="POST" id="new_category">'
+				.'<br/><div class="nowy">Nowy rekord<br/>'
+				.'Nazwa Kategorii: <input type="text" name="new_category_name"/>'
+				.'&nbsp;Rodzic<input type="text" name="new_parent"/>'
+		.'</div></form> <input type="submit" name="btnAdd" value="Nowy" form="new_category"/>';
 }
 
-function StworzKategorie(){ # tworzenie nowej kategorii w bazie danych (CREATE)
+function getCategories($link, $id = null){
+	$categories = [];
+	$query = 'SELECT c.* FROM categories AS c';
+	if($id) $query .= ' WHERE c.id = ' . $id;
+	$result = mysqli_query($link, $query);
+	while($row = mysqli_fetch_object($result,"Category")){
+		if($row->getParent() != 0){
+			if (isset($categories[$row->getParent()]))
+				$categories[$row->getParent()]["childrens"][] = $row->getId();
+			else
+				$categories[$row->getParent()] = ["childrens"=> [$row->getId()]];
+		}
+		$categories[$row->getId()]['main'] = $row;
+	}
+	return $categories;
+}
+
+function renderTree($categories, $id){
+	$row = $categories[$id]['main'];
+	echo '<tr>';
+	echo '<form action="'.$_SERVER['REQUEST_URI'].'" id="category_'.$row->getId() .'" method="POST"></form>';
+	echo '<td>'.$row->getId().'</td>';
+	echo '<td><input type="text" name="category_name" value="' .$row->getCategoryName(). '" form="category_'.$row->getId() .'"/></td>';
+	echo '<td><input type="text" name="parent" value="' .$row->getParent(). '" form="category_'.$row->getId() .'"/></td>';
+	echo '<td class="buttons">'
+			.'<input type="hidden" name="id" value="' .$row->getId().'" form="category_'.$row->getId() .'"/>'
+			.'<input type="submit" name="btnEdit" value="Edytuj" form="category_'.$row->getId() .'"/>'
+			.'<input type="submit" name="btnDel" value="Usuń" form="category_'.$row->getId() .'"/>'
+		.'</td>';
+	echo '</tr>';
+	if(isset($categories[$id]['childrens'])){
+		foreach ($categories[$id]['childrens'] as $parentId){
+			renderTree($categories, $parentId);
+		}
+	}
+}
+
+function ListaProdukt($link){ # wyświetlanie listy wszystkich podstron z bazy danych (READ)
+    $query = "SELECT * FROM products";
+    $result = mysqli_query($link, $query);
+    
+    echo '<table>';
+    echo '<tr>';
+    echo '<th>ID</th>';
+    echo '<th>Nazwa</th>';
+    echo '<th>Opis</th>';
+	echo '<th>Data utworzenia</th>';
+	echo '<th>Data modyfikacji</th>';
+	echo '<th>Data wygaśnięcia</th>';
+	echo '<th>Cena netto</th>';
+	echo '<th>Vat</th>';
+	echo '<th>Ilość</th>';
+	echo '<th>Status dostępności</th>';
+	echo '<th>Kategoria</th>';
+	echo '<th>Waga</th>';
+	echo '<th>Zdjęcie</th>';	
+    echo '</tr>';
+    while($row = mysqli_fetch_array($result)){
+        echo '<tr>';
+        echo '<td>'.$row['id'].'</td>';
+        echo '<td>'.$row['title'].'</td>';
+		echo '<td>'.$row['description'].'</td>';
+		echo '<td>'.$row['creation_date'].'</td>';
+		echo '<td>'.$row['modify_date'].'</td>';
+		echo '<td>'.$row['expiration_date'].'</td>';
+		echo '<td>'.$row['netto_value'].'</td>';
+		echo '<td>'.$row['vat'].'</td>';
+		echo '<td>'.$row['amount'].'</td>';
+		echo '<td>'.$row['availability_status'].'</td>';
+		echo '<td>'.$row['category'].'</td>';
+		echo '<td>'.$row['weight'].'</td>';
+		echo '<td><img class="image" src="data:image/jpeg;base64,'.base64_encode($row['image']).'"/></td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+}
+
+function StworzProdukt(){ # tworzenie nowej kategorii w bazie danych (CREATE)
     $wynik = '
         <div class="createForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
-            <h1>Dodaj kategorię: </h1>
-                <input type="number" name="k_id" placeholder="ID kategorii">
-                <input type="text" name="category_name" placeholder="Nazwa kategorii">
-                <input type="text" name="parent" placeholder="rodzic">
+            <h1>Dodaj Produkt: </h1>
+                <input type="number" name="id" placeholder="ID">
+                <input type="text" name="title" placeholder="Nazwa">
+                <input type="textarea" name="description" placeholder="Opis">
+				<input type="date" name="expiration_date" placeholder="Data wygaśnięcia">
+				<input type="number" name="netto_value" placeholder="Cena netto">
+				<input type="number" name="vat" placeholder="Vat">
+				<input type="number" name="amount" placeholder="Ilość">
+				<label for="totalAmt"><input type="checkbox" step=0.01 id="totalAmt" name="availability_status" class="checkbox">Dostępne?</label>
+				<input type="text" name="category" placeholder="Kategoria">
+				<input type="text" name="weight" placeholder="Waga">
+				<input type="file" name="image" placeholder="Zdjęcie">
                 <div>
-                    <div><input type="submit" value="stworz" class="create" name="btn-create-k"></div>
+                    <div><input type="submit" value="stworz" class="create" name="btn-create-p"></div>
                 </div>
             </form>
         </div>
@@ -142,14 +240,14 @@ function StworzKategorie(){ # tworzenie nowej kategorii w bazie danych (CREATE)
     return $wynik;
 }
 
-function UsunKategorie(){ # usuwanie istniejącej kategorii z bazy danych (DELETE)
+function UsunProdukt(){ # usuwanie istniejącego produktu z bazy danych (DELETE)
     $wynik = '
         <div class="deleteForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
-            <h1>Usuń kategorie: </h1>
-                <input type="number" name="k_id" placeholder="ID kategorii">
+            <h1>Usuń produkt: </h1>
+                <input type="number" name="id" placeholder="ID produktu">
                 <div>
-                    <div><input type="submit" value="usun" class="delete" name="btn-delete-k"></div>
+                    <div><input type="submit" value="usun" class="delete" name="btn-delete-p"></div>
                 </div>
             </form>
         </div>
@@ -157,19 +255,40 @@ function UsunKategorie(){ # usuwanie istniejącej kategorii z bazy danych (DELET
     return $wynik;
 }
 
-function EdytujKategorie(){ # edycja danej kategorii z bazy danych (UPDATE)
+function EdytujProdukt(){ # edycja danej podstrony z bazy danych (UPDATE)
     $wynik = '
         <div class="editForm">
         <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
-            <h1>Edytuj stronę: </h1>
-                <input type="number" name="k_id" placeholder="ID kategorii">
-                <input type="text" name="category_name" placeholder="Nazwa kategorii">
-                <input type="text" name="parent" placeholder="rodzic">
+            <h1>Edytuj produkt: </h1>
+				<input type="number" name="id" placeholder="ID">
+				<input type="text" name="title" placeholder="Nazwa">
+				<input type="textarea" name="description" placeholder="Opis">
+				<input type="date" name="expiration_date" placeholder="Data wygaśnięcia">
+				<input type="number" step=0.01 id="totalAmt" name="netto_value" placeholder="Cena netto">
+				<input type="number" name="vat" placeholder="Vat">
+				<input type="number" name="amount" placeholder="Ilość">
+				<label><input type="checkbox" name="availability_status" class="checkbox">Dostępne?</label>
+				<input type="text" name="category" placeholder="Kategoria">
+				<input type="text" name="weight" placeholder="Waga">
+				<input type="file" name="image" placeholder="Zdjęcie">
                 <div>
-                    <div><input type="submit" value="edytuj" class="edit" name="btn-edit-k"></div>
+                    <div><input type="submit" value="edytuj" class="edit" name="btn-edit-p"></div>
                 </div>
             </form>
         </div>
         ';
     return $wynik;
 }
+
+// function WyswietlProdukt(){
+// 	$wynik = '
+// 	<div class="featured-item">
+// 			<span class="featured-item-title">Dotyk Anioła</span>
+// 			<img class="featured-item-image" src="Images/DotykAniola.jpg" width="150" height="150">
+// 			<div class="featued-item-details">
+// 				<span class="featured-item-price">16,99zł/50g</span>
+// 				<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
+// 			</div>
+// 		</div>
+// 	'
+// }

@@ -13,9 +13,8 @@
 </head>
 <body>
 <?php 
-        echo ListaKategorii(mysqli_connect($dbhost, $dbuser, $dbpass, $baza))
-    ?>
-</div>
+        echo Kategorie(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307))
 ?>
+</div>
 </body>
 </html>

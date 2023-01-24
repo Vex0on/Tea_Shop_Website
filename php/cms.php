@@ -9,7 +9,6 @@
 
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -28,10 +27,13 @@
             <td><button><a href="logout.php"> Wyloguj się</a>; <!-- wylogowanie z panelu -->
         </tr>
         <tr>
-            <td><button><a href="create_category.php">Dodaj Kategorię</a></button></td>
-            <td><button><a href="show_category.php">Pokaż Kategorie</a></button></td>
-            <td><button><a href="edit_category.php">Edytuj Kategorię</a></button></td>
-            <td><button><a href="delete_category.php">Usuń Kategorię</a></button></td>
+            <td><button><a href="categories.php">Zarządzaj Kategoriami</a></button></td>
+        </tr>
+        <tr>
+            <td><button><a href="create_product.php">Dodaj Produkt</button></td>
+            <td><button><a href="show_product.php">Pokaż Produkty</button></td>
+            <td><button><a href="edit_product.php">Edytuj Produkty</button></td>
+            <td><button><a href="delete_product.php">Usuń Produkt</button></td>
         </tr>
 </table>
 </body>
