@@ -20,7 +20,7 @@ if (!isset($_GET['id'])) $_GET['id'] = 1; # pobranie parametru id za pomocą met
 	</head>
 
 	<!-- Panel nawigacyjny -->
-	<body>
+	<body onload="startclock()">
 		<header>
 			<a class="logo" ><img src="Images/teashop3.png" alt="logo"></a>
 			<nav>
@@ -29,7 +29,6 @@ if (!isset($_GET['id'])) $_GET['id'] = 1; # pobranie parametru id za pomocą met
                 	<li><a href="index.php?page=oNas&id=2">O Nas</a></li>
                 	<li><a href="index.php?page=sklep&id=3">Sklep</a></li>
 					<li><a href="index.php?page=prezenty&id=4">Prezenty</a></li>
-					<li><a href="index.php?page=wspolpraca&id=5">Współpraca</a></li>
 					<li><a href="index.php?page=funkcyjna&id=6">Funkcyjna</a></li>
 					<li><a href="index.php?page=filmy&id=7">Filmy</a></li>
 					<li><a href="index.php?page=kontakt&id=8">Kontakt</a>
@@ -37,6 +36,8 @@ if (!isset($_GET['id'])) $_GET['id'] = 1; # pobranie parametru id za pomocą met
 			</nav>
 			<a class="cta" href="./php/admin_page.php">Logowanie</a>
 		</header>
+		<div class="section-header" id="zegarek"></div>
+		<div class="section-header" id="data"></div>
 	</body>
 	
 	<?php

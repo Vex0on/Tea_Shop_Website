@@ -255,46 +255,12 @@
     color: #333;
   }
 
-            /* Współpraca */
-  .cv-attach {
-    margin-left: 90px;
-  }
-
-            /* Filmy */
-
-  #movies{
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .movie-item{
-    text-align: center;
-  }
-
-  .movie-item iframe{
-    width: 100%;
-    border-radius:70px 70px 70px 70px;
-}
-
-  .movie-item-title{
-    background-color: rgba(211, 230, 211, 0.623);
-    font-family: "Montserrat", sans-serif;
-    text-align: center;
-    padding: 15px;
-    font-size: 1rem;
-    border-radius: 80px 80px 80px 80px;
-    margin-bottom: 20px;
-  }
             /* FOOTER */
 
   .main-footer {
     background-color: #24252a;
     color: white;
     padding: 10px 3%;
-    /* bottom: 0;
-    position: fixed; */
-    /* width: 100%; */
   }
 
   .main-footer-container {
@@ -314,7 +280,7 @@
   }
 
   .footer-nav li {
-    padding: 0 .5em;
+    padding: 0.5em;
   }
 
   .footer-nav img {

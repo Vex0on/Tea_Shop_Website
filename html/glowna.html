@@ -58,12 +58,12 @@
     <div class="newsletter">
         <h2 class="newsletter-header">Zapisz się do newslettera</h2>
         <p class="newsletter-text">Zapisz się do newslettera i zdobądź aż <b>10%</b> rabatu</p>
-        <form class="newsletter-form" autocomplete="on">
+        <form class="newsletter-form" autocomplete="on" action="./php/contact.php" method="POST">
             <label for="fname"></label><br>
-            <input type="text" id="fname" value="Twoje imię" onfocus="if (this.value=='Twoje imię') this.value='';">
+            <input type="text" id="subject" name="subject" value="Twoje imię" onfocus="if (this.value=='Twoje imię') this.value='';">
             <label for="email"></label><br>
-            <input type="text" id="email" value="Twój adres email" onfocus="if (this.value=='Twój adres email') this.value='';"><br><br>
-            <input class="btn btn-primary" type="submit" value="Zapisz się">
+            <input type="text" id="message" name="message" value="Twój adres email" onfocus="if (this.value=='Twój adres email') this.value='';"><br><br>
+            <input class="btn btn-primary" type="submit" value="Zapisz się" name="send">
           </form> 
     </div>
 </section>

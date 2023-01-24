@@ -27,6 +27,12 @@
             <td><button><a href="delete_page.php">Usuń Podstronę</a></button></td> <!-- usuwanie podstron -->
             <td><button><a href="logout.php"> Wyloguj się</a>; <!-- wylogowanie z panelu -->
         </tr>
+        <tr>
+            <td><button><a href="create_category.php">Dodaj Kategorię</a></button></td>
+            <td><button><a href="show_category.php">Pokaż Kategorie</a></button></td>
+            <td><button><a href="edit_category.php">Edytuj Kategorię</a></button></td>
+            <td><button><a href="delete_category.php">Usuń Kategorię</a></button></td>
+        </tr>
 </table>
 </body>
 </html>

@@ -1,0 +1,38 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-b2b-menu-header {
+    text-align: center;
+    font-size: 2em;
+}
+
+#movies {
+    display: block;
+}
+
+.movie-item {
+    text-align: center;
+    width: 100%;
+    margin: 1% 0;
+}
+
+.movie-item iframe {
+    width: 30%;
+}
+
+.movie-item-title {
+    font-size: 1.2em;
+    margin-top: 1%;
+}
+
+.movie-item-container {
+    border: 2px solid #000; /* Change #000 to the color of your choice */
+    padding: 10px;
+    background-color: #f1f1f1;
+}

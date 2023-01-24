@@ -90,3 +90,37 @@ function UsunPodstrone(){ # usuwanie istniejącej podstrony z bazy danych (DELET
     return $wynik;
 }
 
+function ListaKategorii($link){ # wyświetlanie listy wszystkich kategorii z bazy danych (READ)
+    $query = "SELECT * FROM categories";
+    $result = mysqli_query($link, $query);
+    while($row = mysqli_fetch_array($result)){
+
+        echo '<table>';
+        echo '<tr>';
+        echo '<th>ID</th>';
+        echo '<th>Nazwa kategorii</th>';
+        echo '<th>Rodzic</th>';
+        echo '</tr>';
+        if($row['parent'] == 0)
+        {
+            echo '<tr>';
+            echo '<td>'.$row['id'].'</td>';
+            echo '<td>'.'<h3>'.$row['category_name'].'</h3>'.'</td>';
+            echo '<td>'.$row['parent'].'</td>';
+            echo '</tr>';
+        }
+        
+
+        $query2 = 'SELECT * FROM categories WHERE parent ='.$row['id'];
+        $result2 = mysqli_query($link, $query2);
+        while($row2 = mysqli_fetch_array($result2) )
+        {
+            echo '<tr>';
+            echo '<td>'.$row2['id'].'</td>';
+            echo '<td>'.$row2['category_name'].'</td>';
+            echo '<td>'.$row2['parent'].'</td>';
+            echo '</tr>';
+        }
+        echo '</table>';
+    }
+}

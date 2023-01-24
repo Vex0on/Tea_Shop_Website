@@ -1,40 +1,38 @@
-var computed = false
-var decimal = 0
+let computed = false;
+let decimal = 0;
 
-function convert (entryform, from, to)
-{
-    convertfrom = from.selectedIndex;
-    convert = to.selectedIndex;
-    entryform.display.value = (entryform.input.value * from[convertfrom].value / to[convert].value);
+function convert(entryForm, fromUnit, toUnit) {
+    const convertFrom = fromUnit.selectedIndex;
+    const convertTo = toUnit.selectedIndex;
+    entryForm.display.value = (entryForm.input.value * fromUnit[convertFrom].value / toUnit[convertTo].value);
 }
 
-function addChar (input, character)
-{
-    if((character=='.' && decimal=='0') || character!='.')
-    {
-        (input.value == "" || input.value =="0") ? input.value = character : input.value += character
-        convert(input.form, input.form.measure1, input.form.measure2)
+function addChar(inputField, character) {
+    if ((character === '.' && decimal === '0') || character !== '.') {
+        if (inputField.value === "" || inputField.value === "0") {
+            inputField.value = character;
+        } else {
+            inputField.value += character;
+        }
+        convert(inputField.form, inputField.form.measure1, inputField.form.measure2);
         computed = true;
-        if (character=='.')
-        {
+        if (character === '.') {
             decimal = 1;
         }
     }
 }
 
-function openVothcom()
-{
-    window.open("","Display window", "toolbar-no,directories-no,menubar-no")
+function openVothcom() {
+    window.open("", "Display window", "toolbar-no,directories-no,menubar-no");
 }
 
-function clear (form)
-{
+function clearForm(form) {
     form.input.value = 0;
     form.display.value = 0;
     decimal = 0;
 }
 
-function changeBackground(hexNumber)
-{
+function changeBackground(hexNumber) {
     document.body.style.background = hexNumber;
+    document.body.style.transition = "background 1s ease";
 }
