@@ -22,5 +22,5 @@
             mysqli_query($link, $query); # wynik poprzedniego polecenia
             header("Location: delete_page.php"); # przekierowanie do strony delete_page
 
-            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # ponowne wywołanie funkcji w celu odświeżenia wyników
+            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # ponowne wywołanie funkcji w celu odświeżenia wyników
         }

@@ -28,5 +28,5 @@
             $query = "INSERT INTO page_list (page_title, page_content, status) VALUES ('".$page_title."', '".$page_content."', '".$active_status."')"; # zapytanie SQL dodające nowy wpis w bazie danych
             mysqli_query($link, $query); # wykonanie poprzedniego zapytania
             header("Location: create_page.php"); # przekierowanie na stronę create_page
-            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # ponowne wywołanie funkcji w celu odświeżenia wyników
+            echo ListaPodstron(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # ponowne wywołanie funkcji w celu odświeżenia wyników
         }

@@ -124,3 +124,52 @@ function ListaKategorii($link){ # wyświetlanie listy wszystkich kategorii z baz
         echo '</table>';
     }
 }
+
+function StworzKategorie(){ # tworzenie nowej kategorii w bazie danych (CREATE)
+    $wynik = '
+        <div class="createForm">
+        <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+            <h1>Dodaj kategorię: </h1>
+                <input type="number" name="k_id" placeholder="ID kategorii">
+                <input type="text" name="category_name" placeholder="Nazwa kategorii">
+                <input type="text" name="parent" placeholder="rodzic">
+                <div>
+                    <div><input type="submit" value="stworz" class="create" name="btn-create-k"></div>
+                </div>
+            </form>
+        </div>
+        ';
+    return $wynik;
+}
+
+function UsunKategorie(){ # usuwanie istniejącej kategorii z bazy danych (DELETE)
+    $wynik = '
+        <div class="deleteForm">
+        <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+            <h1>Usuń kategorie: </h1>
+                <input type="number" name="k_id" placeholder="ID kategorii">
+                <div>
+                    <div><input type="submit" value="usun" class="delete" name="btn-delete-k"></div>
+                </div>
+            </form>
+        </div>
+        ';
+    return $wynik;
+}
+
+function EdytujKategorie(){ # edycja danej kategorii z bazy danych (UPDATE)
+    $wynik = '
+        <div class="editForm">
+        <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
+            <h1>Edytuj stronę: </h1>
+                <input type="number" name="k_id" placeholder="ID kategorii">
+                <input type="text" name="category_name" placeholder="Nazwa kategorii">
+                <input type="text" name="parent" placeholder="rodzic">
+                <div>
+                    <div><input type="submit" value="edytuj" class="edit" name="btn-edit-k"></div>
+                </div>
+            </form>
+        </div>
+        ';
+    return $wynik;
+}
