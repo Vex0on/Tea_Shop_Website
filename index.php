@@ -27,7 +27,7 @@ if (!isset($_GET['id'])) $_GET['id'] = 1; # pobranie parametru id za pomocą met
 				<ul class="nav__links">
 					<li><a href="index.php?page=glowna&id=1">Strona główna</a></li>
                 	<li><a href="index.php?page=oNas&id=2">O Nas</a></li>
-                	<li><a href="index.php?page=sklep&id=3">Sklep</a></li>
+                	<li><a href="./php/shop.php">Sklep</a></li>
 					<li><a href="index.php?page=prezenty&id=4">Prezenty</a></li>
 					<li><a href="index.php?page=funkcyjna&id=6">Funkcyjna</a></li>
 					<li><a href="index.php?page=filmy&id=7">Filmy</a></li>

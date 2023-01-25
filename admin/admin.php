@@ -91,16 +91,16 @@ function UsunPodstrone(){ # usuwanie istniejącej podstrony z bazy danych (DELET
     return $wynik;
 }
 
-function Kategorie($link){ # wyświetlanie listy wszystkich kategorii z bazy danych (READ)
-	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		if (isset($_POST['btnAdd']))
+function Kategorie($link){ # główna funkcja odpowiedzialna za CRUDA
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') { # jeśli żądanie jest typu POST to funkcja sprawdza jaki przycisk został naciśnięty i wykonuje operację
+		if (isset($_POST['btnAdd'])) # dodawania rekordu
 		{
 			$category = new Category();
 			$category->setCategoryName($_POST['new_category_name']);
 			$category->setParent((int)$_POST['new_parent']);
 			mysqli_query($link, $category->add());
 		}
-		elseif (isset($_POST['btnEdit']))
+		elseif (isset($_POST['btnEdit'])) # edycji rekordu
 		{
 			$category = (getCategories($link, $_POST['id']))[$_POST['id']]['main'];
 			$category->setCategoryName($_POST['category_name']);
@@ -113,13 +113,13 @@ function Kategorie($link){ # wyświetlanie listy wszystkich kategorii z bazy dan
 				echo 'NOT EDITED';
 			}
 		}
-		elseif (isset($_POST['btnDelete']))
+		elseif (isset($_POST['btnDelete'])) # usuwania rekordu
 		{
 			$category = (getCategories($link, $_POST['id']))[$_POST['id']]['main'];
 			mysqli_query($link, $category->delete());
 		}
 	}
-	$categories = getCategories($link);
+	$categories = getCategories($link); # wyświetlenia rekordów w tabeli
 	echo '<table >';
 	echo '<tr>';
 	echo '<th>ID</th>';
@@ -138,12 +138,12 @@ function Kategorie($link){ # wyświetlanie listy wszystkich kategorii z bazy dan
 		.'</div></form> <input type="submit" name="btnAdd" value="Nowy" form="new_category"/>';
 }
 
-function getCategories($link, $id = null){
-	$categories = [];
-	$query = 'SELECT c.* FROM categories AS c';
-	if($id) $query .= ' WHERE c.id = ' . $id;
+function getCategories($link, $id = null){ # pobiera wszystkie kategorie z bazy danych
+	$categories = []; 
+	$query = 'SELECT c.* FROM categories AS c'; # Jeśli chcemy pobrać tylko jedną
+	if($id) $query .= ' WHERE c.id = ' . $id; # kategorię to funkcja zwraca
 	$result = mysqli_query($link, $query);
-	while($row = mysqli_fetch_object($result,"Category")){
+	while($row = mysqli_fetch_object($result,"Category")){ 
 		if($row->getParent() != 0){
 			if (isset($categories[$row->getParent()]))
 				$categories[$row->getParent()]["childrens"][] = $row->getId();
@@ -152,23 +152,23 @@ function getCategories($link, $id = null){
 		}
 		$categories[$row->getId()]['main'] = $row;
 	}
-	return $categories;
+	return $categories; # tablicę Category, która jest definiowana w innym miejscu w kodzie
 }
 
-function renderTree($categories, $id){
-	$row = $categories[$id]['main'];
+function renderTree($categories, $id){ # Ta funkcja jest używana przez funkcję Kategorie() do wyświetlania kategorii w formie drzewa
+	$row = $categories[$id]['main']; # Funkcja przyjmuje tablicę z kategoriami oraz id kategorii, którą chcemy wyświetlić
 	echo '<tr>';
 	echo '<form action="'.$_SERVER['REQUEST_URI'].'" id="category_'.$row->getId() .'" method="POST"></form>';
 	echo '<td>'.$row->getId().'</td>';
 	echo '<td><input type="text" name="category_name" value="' .$row->getCategoryName(). '" form="category_'.$row->getId() .'"/></td>';
 	echo '<td><input type="text" name="parent" value="' .$row->getParent(). '" form="category_'.$row->getId() .'"/></td>';
-	echo '<td class="buttons">'
+	echo '<td class="buttons">'                             # funkcja wyświetla wiersz tabeli zawierający informacje o kategorii oraz formularz z przyciskami Edytuj i Usuń
 			.'<input type="hidden" name="id" value="' .$row->getId().'" form="category_'.$row->getId() .'"/>'
 			.'<input type="submit" name="btnEdit" value="Edytuj" form="category_'.$row->getId() .'"/>'
 			.'<input type="submit" name="btnDel" value="Usuń" form="category_'.$row->getId() .'"/>'
 		.'</td>';
 	echo '</tr>';
-	if(isset($categories[$id]['childrens'])){
+	if(isset($categories[$id]['childrens'])){ # jeśli kategoria ma rodzica, funkcja rekurencyjnie wywołuje się dla rodzica, wyświetlając całe drzewo kategorii
 		foreach ($categories[$id]['childrens'] as $parentId){
 			renderTree($categories, $parentId);
 		}
@@ -279,16 +279,3 @@ function EdytujProdukt(){ # edycja danej podstrony z bazy danych (UPDATE)
         ';
     return $wynik;
 }
-
-// function WyswietlProdukt(){
-// 	$wynik = '
-// 	<div class="featured-item">
-// 			<span class="featured-item-title">Dotyk Anioła</span>
-// 			<img class="featured-item-image" src="Images/DotykAniola.jpg" width="150" height="150">
-// 			<div class="featued-item-details">
-// 				<span class="featured-item-price">16,99zł/50g</span>
-// 				<button class="btn btn-primary shop-item-button" role="button">Dodaj do koszyka</button>
-// 			</div>
-// 		</div>
-// 	'
-// }

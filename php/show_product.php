@@ -13,7 +13,7 @@
 </head>
 <body>
 <?php 
-        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza))
+        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)) # wywołanie funkcji wyświetlania produktów z danymi potrzebnymi do połączenia z bazą danych
     ?>
 </div>
 ?>

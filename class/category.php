@@ -2,33 +2,35 @@
 
 class Category
 {
-	//autoincrement
+	# prywatne wartości klasy
 	private $id;
 	private $parent;
 	private $category_name;
 
-	//To check if changes in object was made.
+	# do sprawdzenia czy zostały wprowadzone zmiany w obiekcie
 	private $hash;
 
-	public function __construct()
+	public function __construct() # o tutaj sprawdzenie
 	{
 		$this->hash = $this->getHash();
 	}
 
-	function add()
+	function add() # funkcja korzystająca z zapytania SQL dodającego wartości do tabeli categories
 	{
 		return 'INSERT INTO categories (category_name, parent) VALUES (\'' .$this->category_name. '\',' .$this->parent. ')';
 	}
 
-	function edit()
+	function edit() # funkcja korzystająca z zapytania SQL edytującego wartości z tabeli categories
 	{
 		return 'UPDATE categories SET category_name=\'' .$this->category_name. '\', parent=' .$this->parent. ' WHERE id=' .$this->id;
 	}
 
-	function delete()
+	function delete() # funkcja korzystająca z zapytania SQL usuwającego wartości z tabeli categories
 	{
 		return 'DELETE FROM categories WHERE id=' .$this->id;
 	}
+
+	# Gettery i Settery
 
 	/**
 	 * @return mixed
@@ -84,10 +86,10 @@ class Category
 		return hash("sha512", $sum);
 	}
 
-	//check if changes was made in object after creation
+	# Sprawdza czy zostały zrobione zmiany w obiekcie po utworzeniu
 	public function changed(){
 		if(empty($this->id)){
-			return false; //nothing in DB
+			return false; # brak w bazie
 		} else {
 			if($this->hash !== $this->getHash()){
 				return true;

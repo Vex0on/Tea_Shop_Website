@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/cms.css">
+
 <?php 
     session_start(); # rozpoczęcie sesji
     if (!isset($_SESSION['admin_logged_in'])){   # jeśli sesja nie jest ustawiona na zalogowanego użytkownika, użytkownik jest przekierowywany na stronę logowania
@@ -24,16 +26,16 @@
             <td><button><a href="show_page.php">Pokaż Podstrony</a></button></td> <!-- wyświetlanie podstron -->
             <td><button><a href="edit_page.php">Edytuj Podstronę</a></button></td> <!-- edycja podstron -->
             <td><button><a href="delete_page.php">Usuń Podstronę</a></button></td> <!-- usuwanie podstron -->
-            <td><button><a href="logout.php"> Wyloguj się</a>; <!-- wylogowanie z panelu -->
+            <td><button><a href="logout.php"> Wyloguj się</a> <!-- wylogowanie z panelu -->
+        </tr>
+        <tr class="osobna">
+            <td><button><a href="categories.php">Zarządzaj Kategoriami</a></button></td> <!-- zarządzanie kategoriami obiektowe -->
         </tr>
         <tr>
-            <td><button><a href="categories.php">Zarządzaj Kategoriami</a></button></td>
-        </tr>
-        <tr>
-            <td><button><a href="create_product.php">Dodaj Produkt</button></td>
-            <td><button><a href="show_product.php">Pokaż Produkty</button></td>
-            <td><button><a href="edit_product.php">Edytuj Produkty</button></td>
-            <td><button><a href="delete_product.php">Usuń Produkt</button></td>
+            <td><button><a href="create_product.php">Dodaj Produkt</button></td> <!-- tworzenie produktów -->
+            <td><button><a href="show_product.php">Pokaż Produkty</button></td> <!-- wyświetlanie produktów -->
+            <td><button><a href="edit_product.php">Edytuj Produkty</button></td> <!-- edycja produktów -->
+            <td><button><a href="delete_product.php">Usuń Produkt</button></td> <!-- usuwanie produktów -->
         </tr>
 </table>
 </body>

@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     require_once('../admin/admin.php'); # import pliku z funkcjami administracyjnimi
     require_once('../cfg.php'); # import pliku konfiguracyjnego
 ?>
@@ -14,12 +15,15 @@
 <body>
     <?php 
         echo UsunProdukt(); # wywołanie funkcji usuwającej produkt z bazy danych
-        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # wywołanie funkcji wyświetlania produktów z danymi potrzebnymi do połączenia z bazą danych
+        echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # wywołanie funkcji wyświetlania produktów z danymi potrzebnymi do połączenia z bazą danych
 
         if(isset($_POST['btn-delete-p'])){ # gdy został wciśnięty przycisk o wartości name=btn-delete-p
             $category_id = $_POST['id']; # pobierane jest id podane w inpucie
             $query = "DELETE FROM products WHERE id = '".$category_id."'"; # zapytanie MYSQL usuwa produkt o danym id z bazy
             mysqli_query($link, $query); # wynik poprzedniego polecenia
-
-            echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza, 3307)); # ponowne wywołanie funkcji w celu odświeżenia wyników
+            header("Location: delete_product.php"); # przekierowanie na stronę delete_product
+            echo ListaProdukt(mysqli_connect($dbhost, $dbuser, $dbpass, $baza)); # ponowne wywołanie funkcji w celu odświeżenia wyników
         }
+?>
+
+<?php ob_end_flush(); ?>

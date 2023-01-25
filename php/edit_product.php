@@ -21,14 +21,14 @@
             $product_id = $_POST['id'];
             $title = $_POST['title']; # pobierany jest tytuł podany w inpucie i przypisywany do zmiennej $title
             $description = $_POST['description']; # pobierany jest rodzic kategorii podany w inpucie i przypisywany do zmiennej $description
-            $modify_date = date("Y-m-d H:i:s");
-            $expiration_date = $_POST['expiration_date'];
-            $netto_value = $_POST['netto_value'];
-            $vat = $_POST['vat'];
-            $amount = $_POST['amount'];
-            $category = $_POST['category'];
-            $weight = $_POST['weight'];
-            $image = $_POST['image'];
+            $modify_date = date("Y-m-d H:i:s"); # pobierana jest data podana w inpucie i przypisywana do zmiennej $modify_date
+            $expiration_date = $_POST['expiration_date']; # pobierana jest data podana w inpucie i przypisywana do zmiennej $expiration_date
+            $netto_value = $_POST['netto_value']; # pobierana jest cena netto podana w inpucie i przypisywana do zmiennej $netto_value
+            $vat = $_POST['vat']; # pobierany jest vat podany w inpucie i przypisywany do zmiennej $vat
+            $amount = $_POST['amount']; # pobierana jest ilość podana w inpucie i przypisywana do zmiennej $amount
+            $category = $_POST['category']; # pobierana jest kategoria produktu podana w inpucie i przypisywana do zmiennej $category
+            $weight = $_POST['weight']; # pobierana jest waga podana w inpucie i przypisywana do zmiennej $weight
+            $image = $_POST['image'];# pobierane jest zdjęcie podana w inpucie i przypisywane do zmiennej $image
             if(isset($_POST['availability_status'])) { # jeśli status jest ustawiony na true
                 $status = 1; # pobierany jest status podany w inpucie i przypisywany do zmiennej $status
             } else {

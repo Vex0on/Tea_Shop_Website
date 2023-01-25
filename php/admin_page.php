@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Language" content="pl" />
     <title>Swiat Herbat</title>
     <meta name="Author" content="Jacek Sosnowski" />
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="#">
     <title>CMS</title>
